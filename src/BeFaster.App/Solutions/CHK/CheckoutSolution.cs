@@ -23,12 +23,12 @@ namespace BeFaster.App.Solutions.CHK
             specialOffers.Add("BB", 45);
 
             char[] charSkus = skus.ToArray();
-            Array.Sort(charSkus);
+            Array.Sort(charSkus); //What should i do about case of skus
 
-            for (int i = 0; i < skus.Length; i++) {
-                if (priceTable.ContainsKey(skus[i]))
+            for (int i = 0; i < charSkus.Length; i++) {
+                if (priceTable.ContainsKey(charSkus[i]))
                 {
-                    sum += priceTable[skus[i]];
+                    sum += priceTable[charSkus[i]];
                 }
                 else 
                 {
@@ -40,6 +40,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
