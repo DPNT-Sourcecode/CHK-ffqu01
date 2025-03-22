@@ -51,7 +51,7 @@ namespace BeFaster.App.Solutions.CHK
                         //check if deal is applicable
                         if (pair.Value >= listItem.Item1)
                         {
-                            sum -= pair.Value / listItem.Item1 * listItem.Item2;
+                            CalculateDiscount(priceTable[pair.Key], listItem);
                         }
                         break;
                     }
@@ -62,9 +62,9 @@ namespace BeFaster.App.Solutions.CHK
 
         public static int CalculateDiscount(int originialPrice, (int, int) specialOffer) 
         {
-
-            return -1;
+            return originialPrice * specialOffer.Item1 - specialOffer.Item2;
         }
     }
 }
+
 
