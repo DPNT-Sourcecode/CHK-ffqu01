@@ -12,7 +12,7 @@ namespace BeFaster.App.Solutions.CHK
         /// <summary>
         /// Contains special offers for each SKU as a list: SKU, List(Number For Offer, Offer Price).
         /// </summary>
-        private static Dictionary<char, List<(int, int)>> specialOffers = new Dictionary<char, List<(int, int)>>();
+        private static Dictionary<char, List<(int, int, char)>> specialOffers = new Dictionary<char, List<(int, int, char)>>();
         /// <summary>
         /// Used to count items in a basket that are on offer as: Item, Count.
         /// </summary>
@@ -33,9 +33,9 @@ namespace BeFaster.App.Solutions.CHK
             priceTable.Add('D', 15);
             priceTable.Add('E', 40);
             //fill special offers
-            specialOffers.Add('A', [ (3, 130), (5, 200) ]);
-            specialOffers.Add('B', [ (2, 45) ]);
-            specialOffers.Add('E', [ (2, 50) ]); //2 * E - B
+            specialOffers.Add('A', [ (3, 130, ' '), (5, 200, ' ') ]);
+            specialOffers.Add('B', [ (2, 45, ' ') ]);
+            specialOffers.Add('E', [ (2, 50, 'B') ]); //2 * E - B
             //fill countSpecialOffers
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
@@ -55,13 +55,12 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
-            Console.WriteLine(sum);
             sum -= applySpecialOffers();
             
             return sum;
         }
 
-        public static int CalculateDiscount(int originialPrice, (int, int) specialOffer) 
+        public static int CalculateDiscount(int originialPrice, (int, int, char) specialOffer) 
         {
             return originialPrice * specialOffer.Item1 - specialOffer.Item2;
         }
@@ -72,23 +71,22 @@ namespace BeFaster.App.Solutions.CHK
             int maxDiscount = 0;
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
-                foreach ((int, int) listItem in specialOffers[pair.Key])
+                foreach ((int, int, char) listItem in specialOffers[pair.Key])
                 {
                     //check if deal is applicable
                     if (pair.Value >= listItem.Item1)
                     {
-                        Console.WriteLine($"priceTable: {priceTable[pair.Key]}, listItem: {listItem.Item1}, {listItem.Item2}");
                         maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
                     }
                 }
                 sum += maxDiscount;
                 maxDiscount = 0;
             }
-            Console.WriteLine(sum);
             return sum;
         }
     }
 }
+
 
 
 
