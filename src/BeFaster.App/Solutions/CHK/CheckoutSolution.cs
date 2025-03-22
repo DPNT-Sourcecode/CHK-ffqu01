@@ -19,8 +19,8 @@ namespace BeFaster.App.Solutions.CHK
             priceTable.Add('D', 15);
 
             Dictionary<char, (int, int)> specialOffers = new Dictionary<char, (int, int)>();
-            specialOffers.Add('A', (3, 130));
-            specialOffers.Add('B', (2, 45));
+            specialOffers.Add('A', (3, 20));
+            specialOffers.Add('B', (2, 15));
 
             Dictionary<char, int> countSpecialOffers = new Dictionary<char, int>();
             countSpecialOffers.Add('A', 0);
@@ -40,12 +40,16 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
-            foreach (KeyValuePair<char,int> pair in countSpecialOffers) { 
-                
+            foreach (KeyValuePair<char,int> pair in countSpecialOffers) 
+            {
+                if (pair.Value >= specialOffers[pair.Key].Item1) {
+                    sum -= pair.Value / specialOffers[pair.Key].Item1 * specialOffers[pair.Key].Item2;
+                }
             }
 
             return sum;
         }
     }
 }
+
 
