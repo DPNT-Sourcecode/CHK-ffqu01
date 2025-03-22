@@ -34,4 +34,3 @@ namespace BeFaster.App.MSTests
         }
     }
 }
-
