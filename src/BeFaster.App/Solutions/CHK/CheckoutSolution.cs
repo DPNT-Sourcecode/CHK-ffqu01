@@ -41,8 +41,12 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
-            foreach (KeyValuePair<char,int> pair in countSpecialOffers) 
+            foreach (KeyValuePair<char,int> pair in countSpecialOffers)
             {
+                for (int i = 0; i < specialOffers[pair.Key].Count; i++) 
+                { 
+                    
+                }
                 if (pair.Value >= specialOffers[pair.Key].Item1) {
                     sum -= pair.Value / specialOffers[pair.Key].Item1 * specialOffers[pair.Key].Item2;
                 }
@@ -52,6 +56,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
