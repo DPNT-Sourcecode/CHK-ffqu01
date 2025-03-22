@@ -34,6 +34,7 @@ namespace BeFaster.App.Solutions.CHK
             //fill special offers
             specialOffers.Add('A', [ (3, 130), (5, 200) ]);
             specialOffers.Add('B', [ (2, 45) ]);
+            specialOffers.Add('E', [(2, 30)]);
             //fill countSpecialOffers
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
@@ -79,12 +80,14 @@ namespace BeFaster.App.Solutions.CHK
                     }
                 }
                 sum += maxDiscount;
+                maxDiscount = 0;
             }
             Console.WriteLine(sum);
             return sum;
         }
     }
 }
+
 
 
 
