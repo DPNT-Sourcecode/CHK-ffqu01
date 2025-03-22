@@ -25,5 +25,14 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         {
             Assert.AreEqual(130, CheckoutSolution.ComputePrice("AAA"));
         }
+
+        //CHK_R2
+
+        [TestMethod]
+        public void multipleSkuOffers() 
+        {
+            Assert.AreEqual(200, CheckoutSolution.ComputePrice("AAAAA"));
+        }
     }
 }
+
