@@ -11,12 +11,18 @@ namespace BeFaster.App.Solutions.CHK
         /// <returns>Int total price or -1 for illegal input.</returns>
         public static int ComputePrice(string? skus)
         {
+            int sum = 0;
             Dictionary<char, int> priceTable = new Dictionary<char, int>();
+            priceTable.Add('A', 50);
+            priceTable.Add('B', 30);
+            priceTable.Add('C', 20);
+            priceTable.Add('D', 15);
 
-            return -1;
+            for (int i = 0; i < skus.Length; i++) {
+                sum += priceTable[skus[i]];
+            }
+
+            return sum;
         }
     }
 }
-
-
-

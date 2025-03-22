@@ -23,5 +23,3 @@ namespace BeFaster.App.MSTests.Solutions.HLO
 
     }
 }
-
-
