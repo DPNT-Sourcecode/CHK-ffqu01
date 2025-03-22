@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BeFaster.App.Solutions.CHK;
+
+namespace BeFaster.App.MSTests.Solutions.CHK
+{
+    [TestClass]
+    public class CheckoutSolutionTest
+    {
+        [TestMethod]
+        public void CheckOut() 
+        {
+            
+        }
+    }
+}
