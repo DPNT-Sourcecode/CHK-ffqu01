@@ -21,6 +21,3 @@ namespace BeFaster.App.Solutions.SUM
         public InvalidParamException(string message) : base(message) { }
     }   
 }
-
-
-
