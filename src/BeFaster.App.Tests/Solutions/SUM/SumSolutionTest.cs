@@ -12,15 +12,16 @@ namespace BeFaster.App.Tests.Solutions.SUM
             return SumSolution.Sum(x, y);
         }
 
-        [TestCase(-1, 1, ExpectedResult = InvalidParamException)]
-        public int negativeParameter(int x, int y)
+        [Test]
+        public void negativeParameter(int x, int y)
         {
-            return SumSolution.Sum(x, y);
+            Assert.Throws<InvalidParamException>(SumSolutionTest.Sum(x, y));
         }
 
 
     }
 }
+
 
 
 
