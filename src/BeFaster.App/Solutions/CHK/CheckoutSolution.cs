@@ -74,7 +74,7 @@ namespace BeFaster.App.Solutions.CHK
                     //check if deal is applicable
                     if (pair.Value >= listItem.Item1)
                     {
-                        Console.WriteLine("max: " + maxDiscount);
+                        Console.WriteLine($"priceTable: {priceTable[pair.Key]}, listItem: {listItem.Item1}, {listItem.Item2}");
                         maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
                     }
                 }
@@ -85,6 +85,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
