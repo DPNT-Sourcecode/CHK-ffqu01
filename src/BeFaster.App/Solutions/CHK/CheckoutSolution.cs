@@ -5,11 +5,11 @@ namespace BeFaster.App.Solutions.CHK
 {
     public static class CheckoutSolution
     {
+        //Global Data structures
         /// <summary>
-        /// Contains prices for SKUs as an <SKU, price> pair.
+        /// Contains prices for SKUs as a key pair $<SKU, price>.
         /// </summary>
         private static Dictionary<char, int> priceTable = new Dictionary<char, int>();
-
         /// <summary>
         /// Contains special offers for each SKU as a list: <SKU, List<(Number For Offer, Offer Price)>>.
         /// </summary>
@@ -82,6 +82,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
