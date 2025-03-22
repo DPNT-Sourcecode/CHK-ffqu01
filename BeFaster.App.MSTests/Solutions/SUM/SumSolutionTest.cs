@@ -1,6 +1,6 @@
 using BeFaster.App.Solutions.SUM;
 
-namespace BeFaster.App.MSTests
+namespace BeFaster.App.MSTests.Solutions.SUM
 {
     [TestClass]
     public class SumSolutionTest
@@ -23,12 +23,12 @@ namespace BeFaster.App.MSTests
             Assert.ThrowsException<InvalidParamException>(() => SumSolution.Sum(1, 101));
         }
         [TestMethod]
-        public void TestMinInput() 
-        { 
+        public void TestMinInput()
+        {
             Assert.AreEqual(SumSolution.SUMMIN, SumSolution.Sum(SumSolution.SUMMIN, SumSolution.SUMMIN));
         }
         [TestMethod]
-        public void TestMaxINput() 
+        public void TestMaxINput()
         {
             Assert.AreEqual(SumSolution.SUMMAX * 2, SumSolution.Sum(SumSolution.SUMMAX, SumSolution.SUMMAX));
         }
