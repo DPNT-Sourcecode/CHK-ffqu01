@@ -18,6 +18,7 @@ namespace BeFaster.App.Tests.Solutions.SUM
             Assert.Throws<InvalidParamException>(SumSolution.Sum(x, y));
         }
 
-
+        //I'm going to switch to using the built in unit testing library as it is what i am more familiar with :)
     }
 }
+
