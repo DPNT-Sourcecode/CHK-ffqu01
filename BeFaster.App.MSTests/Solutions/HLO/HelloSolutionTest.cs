@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BeFaster.App.Solutions.HLO;
 
 namespace BeFaster.App.MSTests.Solutions.HLO
 {
@@ -11,8 +12,8 @@ namespace BeFaster.App.MSTests.Solutions.HLO
     {
         [TestMethod]
         public void testHello() 
-        { 
-            Assert.AreEqual('')
+        {
+            Assert.AreEqual("Hello World", HelloSolution.Hello("World"));
         }
     }
 }
