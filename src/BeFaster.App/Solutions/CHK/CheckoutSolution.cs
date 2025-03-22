@@ -65,7 +65,7 @@ namespace BeFaster.App.Solutions.CHK
             return originialPrice * specialOffer.Item1 - specialOffer.Item2;
         }
         //Thinking of refactoring to classes...
-        public static int applySpecialOffers() 
+        public static int applySpecialOffers(string? skus) 
         {
             int sum = 0;
             int maxDiscount = 0;
@@ -73,6 +73,9 @@ namespace BeFaster.App.Solutions.CHK
             {
                 foreach ((int, int, char) listItem in specialOffers[pair.Key])
                 {
+                    if (listItem.Item3 != ' ') {
+                        if (!skus.Contains(listItem.Item3)) break;
+                    } 
                     //check if deal is applicable
                     if (pair.Value >= listItem.Item1)
                     {
@@ -86,11 +89,3 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
-
-
-
-
-
-
-
-
