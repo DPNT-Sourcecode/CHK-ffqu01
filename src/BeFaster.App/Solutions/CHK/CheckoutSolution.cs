@@ -7,13 +7,16 @@ namespace BeFaster.App.Solutions.CHK
     {
         //Global Data structures
         /// <summary>
-        /// Contains prices for SKUs as a key pair $<SKU, price>.
+        /// Contains prices for SKUs as a key pair: SKU, price.
         /// </summary>
         private static Dictionary<char, int> priceTable = new Dictionary<char, int>();
         /// <summary>
-        /// Contains special offers for each SKU as a list: <SKU, List<(Number For Offer, Offer Price)>>.
+        /// Contains special offers for each SKU as a list: SKU, List(Number For Offer, Offer Price).
         /// </summary>
         private static Dictionary<char, List<(int, int)>> specialOffers = new Dictionary<char, List<(int, int)>>();
+        /// <summary>
+        /// Used to count items in a basket that are on offer as: Item, Count.
+        /// </summary>
         private static Dictionary<char, int> countSpecialOffers = new Dictionary<char, int>();
         /// <summary>
         /// Calculates the total price of all the items in the basket.
@@ -82,6 +85,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
