@@ -39,7 +39,8 @@ namespace BeFaster.App.Solutions.CHK
             //fill countSpecialOffers
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
-
+            countSpecialOffers.Add('E', 0);
+            
             foreach(char c in skus) {
                 if (priceTable.ContainsKey(c))
                 {
@@ -88,6 +89,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
