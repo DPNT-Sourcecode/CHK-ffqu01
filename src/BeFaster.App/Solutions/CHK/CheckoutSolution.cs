@@ -48,7 +48,7 @@ namespace BeFaster.App.Solutions.CHK
                     //find highest deal applicable
                     if(pair.Value <= listItem.Item1) 
                     {
-                        //
+                        //check if deal is applicable
                         if (pair.Value >= listItem.Item1)
                         {
                             sum -= pair.Value / listItem.Item1 * listItem.Item2;
@@ -59,5 +59,12 @@ namespace BeFaster.App.Solutions.CHK
             }
             return sum;
         }
+
+        public static int CalculateDiscount(int originialPrice, (int, int) specialOffer) 
+        {
+
+            return -1;
+        }
     }
 }
+
