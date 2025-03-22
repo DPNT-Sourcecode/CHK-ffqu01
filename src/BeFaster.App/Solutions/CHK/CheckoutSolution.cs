@@ -5,6 +5,7 @@ namespace BeFaster.App.Solutions.CHK
 {
     public static class CheckoutSolution
     {
+        //Global Data structures
         private static Dictionary<char, int> priceTable = new Dictionary<char, int>();
         private static Dictionary<char, List<(int, int)>> specialOffers = new Dictionary<char, List<(int, int)>>();
         private static Dictionary<char, int> countSpecialOffers = new Dictionary<char, int>();
@@ -54,6 +55,7 @@ namespace BeFaster.App.Solutions.CHK
         //Thinking of refactoring to classes...
         public static int applySpecialOffers() 
         {
+            int sum = 0;
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
                 foreach ((int, int) listItem in specialOffers[pair.Key])
@@ -64,16 +66,17 @@ namespace BeFaster.App.Solutions.CHK
                         //check if deal is applicable
                         if (pair.Value >= listItem.Item1)
                         {
-                            CalculateDiscount(priceTable[pair.Key], listItem);
+                            sum += CalculateDiscount(priceTable[pair.Key], listItem);
                         }
                         break;
                     }
                 }
             }
-            return -1;
+            return sum;
         }
     }
 }
+
 
 
 
