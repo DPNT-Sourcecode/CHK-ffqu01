@@ -5,16 +5,16 @@ namespace BeFaster.App.Solutions.HLO
     public static class HelloSolution
     {
         /// <summary>
-        /// Says hello to the world
+        /// Says hello to a friend
         /// </summary>
-        /// <param name="friendName"></param>
+        /// <param name="friendName">String containing a name.</param>
         /// <returns>
-        /// Returns Hello + 'friendName'
+        /// Returns Hello + 'friendName'.
         /// </returns>
         public static string Hello(string? friendName)
         {
-            return "Hello, World!";
-            //return $"Hello {friendName}";
+            return $"Hello, {friendName}!";
         }
     }
 }
+
