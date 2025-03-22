@@ -29,7 +29,7 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         //CHK_R2
 
         [TestMethod]
-        public void multipleSkuOffers() 
+        public void multipleSpecialOffers() 
         {
             Assert.AreEqual(200, CheckoutSolution.ComputePrice("AAAAA"));
         }
@@ -39,12 +39,9 @@ namespace BeFaster.App.MSTests.Solutions.CHK
             Assert.AreEqual(50, CheckoutSolution.CalculateDiscount(50, (5, 200)));
         }
         [TestMethod]
-        public void testCalculateDiscount2() 
+        public void notMaxSpeicalOffers() 
         {
-            Assert.AreEqual(20, CheckoutSolution.CalculateDiscount(50, (5, 200)));
+            Assert.AreEqual(170, CheckoutSolution.ComputePrice("AAAA"));
         }
     }
 }
-
-
-
