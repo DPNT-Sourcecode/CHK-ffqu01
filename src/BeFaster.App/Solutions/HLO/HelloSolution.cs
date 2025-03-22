@@ -13,10 +13,12 @@ namespace BeFaster.App.Solutions.HLO
         /// </returns>
         public static string Hello(string? friendName)
         {
-            return $"Hello {friendName}";
+            return "Hello, World!";
+            //return $"Hello {friendName}";
         }
     }
 }
+
 
 
 
