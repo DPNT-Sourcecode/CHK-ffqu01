@@ -8,7 +8,8 @@ namespace BeFaster.App.Tests.Solutions.SUM
         [TestMethod]
         public void test()
         {
-
+            Assert.IsTrue(true);
         }
     }
 }
+
