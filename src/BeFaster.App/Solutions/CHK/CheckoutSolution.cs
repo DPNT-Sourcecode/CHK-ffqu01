@@ -23,14 +23,16 @@ namespace BeFaster.App.Solutions.CHK
             specialOffers.Add('B', (2, 45));
 
             Dictionary<char, int> countSpecialOffers = new Dictionary<char, int>();
+            countSpecialOffers.Add('A', 0);
+            countSpecialOffers.Add('B', 0);
 
-            for (int i = 0; i < skus.Length; i++) {
-                if (priceTable.ContainsKey(skus[i]))
+            foreach(char c in skus) {
+                if (priceTable.ContainsKey(c))
                 {
-                    sum += priceTable[skus[i]];
-                    if (specialOffers.ContainsKey(skus[i])) 
+                    sum += priceTable[c];
+                    if (specialOffers.ContainsKey(c)) 
                     {
-
+                        countSpecialOffers[c]++;
                     }
                 }
                 else 
@@ -39,14 +41,8 @@ namespace BeFaster.App.Solutions.CHK
                 }
             }
 
+
             return sum;
         }
     }
 }
-
-
-
-
-
-
-
