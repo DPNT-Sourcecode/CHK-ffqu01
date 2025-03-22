@@ -52,6 +52,7 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
+            Console.WriteLine(sum);
             sum -= applySpecialOffers();
             
             return sum;
@@ -73,14 +74,17 @@ namespace BeFaster.App.Solutions.CHK
                     //check if deal is applicable
                     if (pair.Value >= listItem.Item1)
                     {
+                        Console.WriteLine("max: " + maxDiscount);
                         maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
                     }
                 }
                 sum += maxDiscount;
             }
+            Console.WriteLine(sum);
             return sum;
         }
     }
 }
+
 
 
