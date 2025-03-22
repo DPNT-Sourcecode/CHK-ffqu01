@@ -40,9 +40,12 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
-
+            foreach (KeyValuePair<char,int> pair in countSpecialOffers) { 
+                
+            }
 
             return sum;
         }
     }
 }
+
