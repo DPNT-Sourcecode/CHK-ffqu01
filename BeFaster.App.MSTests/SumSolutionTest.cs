@@ -7,8 +7,13 @@ namespace BeFaster.App.MSTests
     {
         [TestMethod]
         public void ComputeSum()
+        {
+            Assert.AreEqual(2, SumSolution.Sum(1, 1));
+        }
+        [TestMethod]
+        public void TestNegativeInput() 
         { 
-
+        
         }
     }
 }
