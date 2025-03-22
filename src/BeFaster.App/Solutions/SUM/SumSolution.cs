@@ -4,11 +4,11 @@ namespace BeFaster.App.Solutions.SUM
 {
     public static class SumSolution
     {
-        private const int SUMMAX = 100;
-        private const int SUMMIN = 0;
+        public const int SUMMAX = 100;
+        public const int SUMMIN = 0;
         public static int Sum(int x, int y)
         {
-            if (x <= 0 || y <= 0 || x > 100 || y > 100) 
+            if (x < SUMMIN || y < SUMMIN || x > SUMMAX || y > SUMMAX) 
             {
                 throw new InvalidParamException("Inputs must be a positive integer between 0-100");
             }
@@ -23,4 +23,5 @@ namespace BeFaster.App.Solutions.SUM
         public InvalidParamException(string message) : base(message) { }
     }   
 }
+
 
