@@ -15,5 +15,12 @@ namespace BeFaster.App.MSTests.Solutions.HLO
         {
             Assert.AreEqual("Hello World", HelloSolution.Hello("World"));
         }
+        [TestMethod]
+        public void testNoname() 
+        {
+            Assert.AreEqual("Hello ", HelloSolution.Hello(null));
+        }
+
     }
 }
+
