@@ -7,6 +7,7 @@ namespace BeFaster.App.Solutions.CHK
     {
         private static Dictionary<char, int> priceTable = new Dictionary<char, int>();
         private static Dictionary<char, List<(int, int)>> specialOffers = new Dictionary<char, List<(int, int)>>();
+        private static Dictionary<char, int> countSpecialOffers = new Dictionary<char, int>();
         /// <summary>
         /// Calculates the total price of all the items in the basket.
         /// </summary>
@@ -15,17 +16,15 @@ namespace BeFaster.App.Solutions.CHK
         public static int ComputePrice(string? skus)
         {
             int sum = 0;
-            Dictionary<char, int> priceTable = new Dictionary<char, int>();
+            //fill price table
             priceTable.Add('A', 50);
             priceTable.Add('B', 30);
             priceTable.Add('C', 20);
             priceTable.Add('D', 15);
-
-            Dictionary<char, List<(int, int)>> specialOffers = new Dictionary<char, List<(int, int)>>();
+            //fill special offers
             specialOffers.Add('A', [ (3, 130), (5, 200) ]);
             specialOffers.Add('B', [ (2, 45) ]);
-
-            Dictionary<char, int> countSpecialOffers = new Dictionary<char, int>();
+            //fill countSpecialOffers
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
 
@@ -43,6 +42,7 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
+            sum -= applySpecialOffers();
             
             return sum;
         }
@@ -52,7 +52,7 @@ namespace BeFaster.App.Solutions.CHK
             return originialPrice * specialOffer.Item1 - specialOffer.Item2;
         }
         //Thinking of refactoring to classes...
-        public static int applySpecialOffers(Dictionary<char, List<(int, int)>> specialOffers, Dictionary<char, int> countSpecialOffers) 
+        public static int applySpecialOffers() 
         {
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
@@ -74,6 +74,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
