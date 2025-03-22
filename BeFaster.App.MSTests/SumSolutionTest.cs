@@ -22,15 +22,15 @@ namespace BeFaster.App.MSTests
             Assert.ThrowsException<InvalidParamException>(() => SumSolution.Sum(101, 1));
             Assert.ThrowsException<InvalidParamException>(() => SumSolution.Sum(1, 101));
         }
-
+        [TestMethod]
         public void TestMinInput() 
         { 
-            Assert.AreEqual(0, SumSolution.Sum(0, 0));
+            Assert.AreEqual(SumSolution.SUMMIN, SumSolution.Sum(SumSolution.SUMMIN, SumSolution.SUMMIN));
         }
-
+        [TestMethod]
         public void TestMaxINput() 
-        { 
-        
+        {
+            Assert.AreEqual(SumSolution.SUMMAX * 2, SumSolution.Sum(SumSolution.SUMMAX, SumSolution.SUMMAX));
         }
     }
 }
