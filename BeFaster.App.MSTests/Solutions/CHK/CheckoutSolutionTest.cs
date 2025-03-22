@@ -41,7 +41,8 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         [TestMethod]
         public void notMaxSpeicalOffers() 
         {
-            Assert.AreEqual(170, CheckoutSolution.ComputePrice("AAAA"));
+            Assert.AreEqual(180, CheckoutSolution.ComputePrice("AAAA"));
         }
     }
 }
+

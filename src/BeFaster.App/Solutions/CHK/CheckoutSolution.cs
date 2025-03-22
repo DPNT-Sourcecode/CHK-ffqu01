@@ -65,6 +65,7 @@ namespace BeFaster.App.Solutions.CHK
         public static int applySpecialOffers() 
         {
             int sum = 0;
+            int maxDiscount = 0;
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
                 foreach ((int, int) listItem in specialOffers[pair.Key])
@@ -72,6 +73,7 @@ namespace BeFaster.App.Solutions.CHK
                     //find highest deal applicable
                     if (pair.Value <= listItem.Item1)
                     {
+                        maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
                         //check if deal is applicable
                         if (pair.Value >= listItem.Item1)
                         {
@@ -85,3 +87,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
