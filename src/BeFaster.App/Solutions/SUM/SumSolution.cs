@@ -9,5 +9,11 @@ namespace BeFaster.App.Solutions.SUM
             return x + y;
         }
     }
+
+    public class InvalidParamException : Exception
+    {
+        public InvalidParamException() { }
+    }   
 }
+
 
