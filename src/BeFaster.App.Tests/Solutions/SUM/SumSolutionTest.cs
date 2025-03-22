@@ -21,4 +21,3 @@ namespace BeFaster.App.Tests.Solutions.SUM
         //I'm going to switch to using the built in unit testing library as it is what i am more familiar with :)
     }
 }
-
