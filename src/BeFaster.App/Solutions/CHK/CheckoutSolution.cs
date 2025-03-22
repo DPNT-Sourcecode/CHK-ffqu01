@@ -24,6 +24,10 @@ namespace BeFaster.App.Solutions.CHK
         /// <returns>Int total price or -1 for illegal input.</returns>
         public static int ComputePrice(string? skus)
         {
+            priceTable.Clear();
+            specialOffers.Clear();
+            countSpecialOffers.Clear();
+
             if(skus == null) return -1;
             int sum = 0;
             //fill price table
@@ -65,7 +69,7 @@ namespace BeFaster.App.Solutions.CHK
             return originialPrice * specialOffer.Item1 - specialOffer.Item2;
         }
         //Thinking of refactoring to classes...
-        public static int applySpecialOffers(string? skus) 
+        public static int applySpecialOffers(string skus) 
         {
             int sum = 0;
             int maxDiscount = 0;
@@ -89,4 +93,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
