@@ -70,21 +70,17 @@ namespace BeFaster.App.Solutions.CHK
             {
                 foreach ((int, int) listItem in specialOffers[pair.Key])
                 {
-                    //find highest deal applicable
-                    if (pair.Value <= listItem.Item1)
+                    //check if deal is applicable
+                    if (pair.Value >= listItem.Item1)
                     {
                         maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
-                        //check if deal is applicable
-                        if (pair.Value >= listItem.Item1)
-                        {
-                            sum += CalculateDiscount(priceTable[pair.Key], listItem);
-                        }
-                        break;
                     }
                 }
+                sum += maxDiscount;
             }
             return sum;
         }
     }
 }
+
 
