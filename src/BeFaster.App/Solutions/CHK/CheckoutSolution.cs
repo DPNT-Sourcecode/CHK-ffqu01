@@ -18,11 +18,11 @@ namespace BeFaster.App.Solutions.CHK
             priceTable.Add('C', 20);
             priceTable.Add('D', 15);
 
-            Dictionary < char, (int, int)> specialOffers = new Dictionary<char, (int, int) >();
+            Dictionary<char, (int, int)> specialOffers = new Dictionary<char, (int, int)>();
             specialOffers.Add('A', (3, 130));
             specialOffers.Add('B', (2, 45));
 
-            int[] countSpecialOffers = new int[specialOffers.Count];
+            Dictionary<char, int> countSpecialOffers = new Dictionary<char, int>();
 
             for (int i = 0; i < skus.Length; i++) {
                 if (priceTable.ContainsKey(skus[i]))
@@ -43,6 +43,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
