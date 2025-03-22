@@ -22,13 +22,16 @@ namespace BeFaster.App.Solutions.CHK
             specialOffers.Add('A', (3, 130));
             specialOffers.Add('B', (2, 45));
 
-            char[] charSkus = skus.ToArray();
-            Array.Sort(charSkus); //What should i do about case of skus
+            int[] countSpecialOffers = new int[specialOffers.Count];
 
-            for (int i = 0; i < charSkus.Length; i++) {
-                if (priceTable.ContainsKey(charSkus[i]))
+            for (int i = 0; i < skus.Length; i++) {
+                if (priceTable.ContainsKey(skus[i]))
                 {
-                    sum += priceTable[charSkus[i]];
+                    sum += priceTable[skus[i]];
+                    if (specialOffers.ContainsKey(skus[i])) 
+                    {
+
+                    }
                 }
                 else 
                 {
@@ -40,6 +43,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
