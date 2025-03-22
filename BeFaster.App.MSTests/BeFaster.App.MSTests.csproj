@@ -21,8 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-	<ProjectReference Include="C:\Users\charl\Downloads\runner-for-csharp-windows\accelerate_runner\befaster.sln" />
+	<ProjectReference Include="..\..\src\BeFaster.App\BeFaster.App.csproj" />
   </ItemGroup>
 
 </Project>
+
 
