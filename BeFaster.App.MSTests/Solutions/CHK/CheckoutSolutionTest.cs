@@ -15,5 +15,11 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         {
             Assert.AreEqual(50, CheckoutSolution.ComputePrice("A"));
         }
+        [TestMethod]
+        public void illegalInput() 
+        { 
+            Assert.AreEqual(-1, CheckoutSolution.ComputePrice("AZ"));
+        }
     }
 }
+

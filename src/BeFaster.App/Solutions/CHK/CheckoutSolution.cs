@@ -19,10 +19,18 @@ namespace BeFaster.App.Solutions.CHK
             priceTable.Add('D', 15);
 
             for (int i = 0; i < skus.Length; i++) {
-                sum += priceTable[skus[i]];
+                if (priceTable.ContainsKey(skus[i]))
+                {
+                    sum += priceTable[skus[i]];
+                }
+                else 
+                {
+                    return -1;
+                }
             }
 
             return sum;
         }
     }
 }
+
