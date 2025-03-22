@@ -18,9 +18,9 @@ namespace BeFaster.App.Solutions.CHK
             priceTable.Add('C', 20);
             priceTable.Add('D', 15);
 
-            Dictionary<string, int> specialOffers = new Dictionary<string, int>();
-            specialOffers.Add("AAA", 130);
-            specialOffers.Add("BB", 45);
+            Dictionary < char, (int, int)> specialOffers = new Dictionary<char, (int, int) >();
+            specialOffers.Add('A', (3, 130));
+            specialOffers.Add('B', (2, 45));
 
             char[] charSkus = skus.ToArray();
             Array.Sort(charSkus); //What should i do about case of skus
@@ -40,6 +40,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
