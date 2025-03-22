@@ -21,6 +21,3 @@ namespace BeFaster.App.Tests.Solutions.SUM
 
     }
 }
-
-
-
