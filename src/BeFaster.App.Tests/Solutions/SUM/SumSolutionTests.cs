@@ -1,11 +1,15 @@
 ﻿using System;
 
-[TestClass]
-public class SumSolutionTests
+namespace BeFaster.App.Tests.Solutions.SUM
 {
-    [TestMethod]
-    public void test() 
-    { 
-    
+    [TestClass]
+    public class SumSolutionTests
+    {
+        [TestMethod]
+        public void test()
+        {
+
+        }
     }
 }
+
