@@ -5,6 +5,8 @@ namespace BeFaster.App.Solutions.CHK
 {
     public static class CheckoutSolution
     {
+        private static Dictionary<char, int> priceTable = new Dictionary<char, int>();
+        private static Dictionary<char, List<(int, int)>> specialOffers = new Dictionary<char, List<(int, int)>>();
         /// <summary>
         /// Calculates the total price of all the items in the basket.
         /// </summary>
@@ -41,12 +43,23 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
-            foreach (KeyValuePair<char,int> pair in countSpecialOffers)
+            
+            return sum;
+        }
+
+        public static int CalculateDiscount(int originialPrice, (int, int) specialOffer) 
+        {
+            return originialPrice * specialOffer.Item1 - specialOffer.Item2;
+        }
+        //Thinking of refactoring to classes...
+        public static int applySpecialOffers(Dictionary<char, List<(int, int)>> specialOffers, Dictionary<char, int> countSpecialOffers) 
+        {
+            foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
-                foreach ((int, int) listItem in specialOffers[pair.Key]) 
+                foreach ((int, int) listItem in specialOffers[pair.Key])
                 {
                     //find highest deal applicable
-                    if(pair.Value <= listItem.Item1) 
+                    if (pair.Value <= listItem.Item1)
                     {
                         //check if deal is applicable
                         if (pair.Value >= listItem.Item1)
@@ -57,14 +70,10 @@ namespace BeFaster.App.Solutions.CHK
                     }
                 }
             }
-            return sum;
-        }
-
-        public static int CalculateDiscount(int originialPrice, (int, int) specialOffer) 
-        {
-            return originialPrice * specialOffer.Item1 - specialOffer.Item2;
+            return -1;
         }
     }
 }
+
 
 
