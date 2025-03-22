@@ -12,8 +12,11 @@ namespace BeFaster.App.MSTests
         }
         [TestMethod]
         public void TestNegativeInput() 
-        { 
-        
+        {
+            Assert.ThrowsException<InvalidParamException>(() => SumSolution.Sum(-1, 1));
         }
-    }
+        [TestMethod]
+        public void TestAboveMaxInput() { 
+            
+        }
 }
