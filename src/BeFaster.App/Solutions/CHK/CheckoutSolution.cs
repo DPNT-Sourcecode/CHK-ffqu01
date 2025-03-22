@@ -55,7 +55,7 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
-            sum -= applySpecialOffers();
+            sum -= applySpecialOffers(skus);
             
             return sum;
         }
@@ -89,3 +89,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
