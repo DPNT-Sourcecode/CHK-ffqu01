@@ -6,8 +6,9 @@ namespace BeFaster.App.MSTests
     public class SumSolutionTest
     {
         [TestMethod]
-        public void TestMethod1()
-        {
+        public void ComputeSum()
+        { 
+
         }
     }
 }

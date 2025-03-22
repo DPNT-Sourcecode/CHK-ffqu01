@@ -21,9 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	<ProjectReference Include="..\..\src\BeFaster.App\BeFaster.App.csproj" />
+	<ProjectReference Include="..\src\BeFaster.App\BeFaster.App.csproj" />
   </ItemGroup>
 
 </Project>
-
-
