@@ -5,7 +5,6 @@ namespace BeFaster.App.Solutions.CHK
 {
     public static class CheckoutSolution
     {
-        //Global Data structures
         /// <summary>
         /// Contains prices for SKUs as a key pair: SKU, price.
         /// </summary>
@@ -25,16 +24,18 @@ namespace BeFaster.App.Solutions.CHK
         /// <returns>Int total price or -1 for illegal input.</returns>
         public static int ComputePrice(string? skus)
         {
+            if(skus == null) return -1;
             int sum = 0;
             //fill price table
             priceTable.Add('A', 50);
             priceTable.Add('B', 30);
             priceTable.Add('C', 20);
             priceTable.Add('D', 15);
+            priceTable.Add('E', 40);
             //fill special offers
             specialOffers.Add('A', [ (3, 130), (5, 200) ]);
             specialOffers.Add('B', [ (2, 45) ]);
-            specialOffers.Add('E', [(2, 30)]);
+            specialOffers.Add('E', [ (2, 50) ]); //2 * E - B
             //fill countSpecialOffers
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
@@ -87,6 +88,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
