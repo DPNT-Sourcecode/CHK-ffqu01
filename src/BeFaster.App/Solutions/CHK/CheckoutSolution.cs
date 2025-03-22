@@ -11,10 +11,12 @@ namespace BeFaster.App.Solutions.CHK
         /// <returns>Int total price or -1 for illegal input.</returns>
         public static int ComputePrice(string? skus)
         {
+            Dictionary<char, int> priceTable = new Dictionary<char, int>();
 
             return -1;
         }
     }
 }
+
 
 

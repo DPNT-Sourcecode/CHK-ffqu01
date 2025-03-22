@@ -13,7 +13,8 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         [TestMethod]
         public void CheckOut() 
         {
-            
+            Assert.AreEqual(50, CheckoutSolution.ComputePrice("A"));
         }
     }
 }
+
