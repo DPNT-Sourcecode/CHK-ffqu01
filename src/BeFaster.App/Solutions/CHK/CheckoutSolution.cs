@@ -1,4 +1,5 @@
 ﻿using BeFaster.Runner.Exceptions;
+using System.Runtime.CompilerServices;
 
 namespace BeFaster.App.Solutions.CHK
 {
@@ -18,9 +19,9 @@ namespace BeFaster.App.Solutions.CHK
             priceTable.Add('C', 20);
             priceTable.Add('D', 15);
 
-            Dictionary<char, (int, int)> specialOffers = new Dictionary<char, (int, int)>();
-            specialOffers.Add('A', (3, 20));
-            specialOffers.Add('B', (2, 15));
+            Dictionary<char, List<(int, int)>> specialOffers = new Dictionary<char, List<(int, int)>>();
+            specialOffers.Add('A', [ (3, 130), (5, 200) ]);
+            specialOffers.Add('B', [ (2, 45) ]);
 
             Dictionary<char, int> countSpecialOffers = new Dictionary<char, int>();
             countSpecialOffers.Add('A', 0);
@@ -51,5 +52,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
