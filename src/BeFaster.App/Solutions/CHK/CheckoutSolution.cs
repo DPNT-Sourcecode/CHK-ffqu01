@@ -72,7 +72,7 @@ namespace BeFaster.App.Solutions.CHK
         public static int applySpecialOffers(string skus) 
         {
             int sum = 0;
-            int maxDiscount = 0;
+            (int, int, char) maxDiscount = (0, 0, ' ');
             int currentCount = 0;
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
@@ -88,13 +88,13 @@ namespace BeFaster.App.Solutions.CHK
                         //check if deal is applicable
                         if (currentCount >= listItem.Item1)
                         {
-                            maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
-                            currentCount -= listItem.Item1;
+                            maxDiscount = listItem;
+
                         }
                     }
-                    //if (currentCount == pair.Value || currentCount < specialOffers[pair.Key][0].Item1) break; //if no discount can be applied break out of loop
-                    sum += maxDiscount;
-                    maxDiscount = 0;
+                    currentCount -= maxDiscount.Item1; //subtract highest discount count
+                    sum += CalculateDiscount(priceTable[pair.Key], maxDiscount); //add discount to sum
+                    maxDiscount = (0, 0, ' ');
                 }
                 currentCount = 0;
             }
@@ -102,6 +102,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
