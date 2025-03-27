@@ -74,5 +74,10 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         {
             Assert.AreEqual(400, CheckoutSolution.ComputePrice("AAAAAAAAAA")); //got 450
         }
+        [TestMethod]
+        public void longSpecialStus() 
+        {
+            Assert.AreEqual(330+80+40, CheckoutSolution.ComputePrice("AAAAAAAAEEEB"));
+        }
     }
 }
