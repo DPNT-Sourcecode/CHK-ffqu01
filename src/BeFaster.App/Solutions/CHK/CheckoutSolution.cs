@@ -10,7 +10,7 @@ namespace BeFaster.App.Solutions.CHK
         /// </summary>
         private static Dictionary<char, int> priceTable = new Dictionary<char, int>();
         /// <summary>
-        /// Contains special offers for each SKU as a list: SKU, List(Number For Offer, Offer Price).
+        /// Contains special offers for each SKU as a list: SKU, List(Number For Offer, Offer Price, Offer special condition).
         /// </summary>
         private static Dictionary<char, List<(int, int, char)>> specialOffers = new Dictionary<char, List<(int, int, char)>>();
         /// <summary>
@@ -77,7 +77,7 @@ namespace BeFaster.App.Solutions.CHK
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
                 currentCount = pair.Value;
-                while (currentCount > 0 || currentCount >= specialOffers[pair.Key][0].Item1)
+                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
                 {
                     foreach ((int, int, char) listItem in specialOffers[pair.Key])
                     {
@@ -102,6 +102,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
 
