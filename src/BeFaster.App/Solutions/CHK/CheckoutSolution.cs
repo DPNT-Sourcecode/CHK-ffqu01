@@ -92,7 +92,7 @@ namespace BeFaster.App.Solutions.CHK
                             currentCount -= listItem.Item1;
                         }
                     }
-                    if (currentCount == pair.Value) break; //if no discount can be applied break out of loop
+                    if (currentCount == pair.Value || currentCount < specialOffers[pair.Key][0].Item1) break; //if no discount can be applied break out of loop
                     sum += maxDiscount;
                     maxDiscount = 0;
                 }
@@ -102,5 +102,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
 
