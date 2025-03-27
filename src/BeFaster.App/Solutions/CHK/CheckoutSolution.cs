@@ -73,23 +73,31 @@ namespace BeFaster.App.Solutions.CHK
         {
             int sum = 0;
             int maxDiscount = 0;
+            int currentCount = 0;
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
-                foreach ((int, int, char) listItem in specialOffers[pair.Key])
+                currentCount = pair.Value;
+                while (currentCount > 0)
                 {
-                    if (listItem.Item3 != ' ') {
-                        if (!skus.Contains(listItem.Item3)) break;
-                    } 
-                    //check if deal is applicable
-                    if (pair.Value >= listItem.Item1)
+                    foreach ((int, int, char) listItem in specialOffers[pair.Key])
                     {
-                        maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
+                        if (listItem.Item3 != ' ')
+                        {
+                            if (!skus.Contains(listItem.Item3)) break;
+                        }
+                        //check if deal is applicable
+                        if (pair.Value >= listItem.Item1)
+                        {
+                            maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
+                        }
                     }
+                    sum += maxDiscount;
+                    maxDiscount = 0;
                 }
-                sum += maxDiscount;
-                maxDiscount = 0;
+                currentCount = 0;
             }
             return sum;
         }
     }
 }
+
