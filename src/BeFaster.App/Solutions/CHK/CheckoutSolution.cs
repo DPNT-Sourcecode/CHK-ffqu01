@@ -86,11 +86,13 @@ namespace BeFaster.App.Solutions.CHK
                             if (!skus.Contains(listItem.Item3)) break;
                         }
                         //check if deal is applicable
-                        if (pair.Value >= listItem.Item1)
+                        if (currentCount >= listItem.Item1)
                         {
                             maxDiscount = CalculateDiscount(priceTable[pair.Key], listItem);
+                            currentCount -= listItem.Item1;
                         }
                     }
+                    if (currentCount == pair.Value) break; //if no discount can be applied break out of loop
                     sum += maxDiscount;
                     maxDiscount = 0;
                 }
@@ -100,4 +102,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
