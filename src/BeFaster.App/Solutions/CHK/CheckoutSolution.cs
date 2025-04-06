@@ -79,8 +79,7 @@ namespace BeFaster.App.Solutions.CHK
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
                 currentCount = pair.Value;
-                TIMEOUT = currentCount + 5;
-                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
+                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1 && TIMEOUT < 20)
                 {
                     foreach ((int, int, char) listItem in specialOffers[pair.Key])
                     {
@@ -98,6 +97,7 @@ namespace BeFaster.App.Solutions.CHK
                     currentCount -= maxDiscount.Item1; //subtract highest discount count
                     sum += CalculateDiscount(priceTable[pair.Key], maxDiscount); //add discount to sum
                     maxDiscount = (0, 0, ' ');
+                    TIMEOUT++;
                 }
                 currentCount = 0;
             }
@@ -105,4 +105,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
