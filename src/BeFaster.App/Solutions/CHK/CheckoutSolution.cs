@@ -74,9 +74,12 @@ namespace BeFaster.App.Solutions.CHK
             int sum = 0;
             (int, int, char) maxDiscount = (0, 0, ' ');
             int currentCount = 0;
+            int TIMEOUT = 0;
+
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
                 currentCount = pair.Value;
+                TIMEOUT = currentCount + 5;
                 while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
                 {
                     foreach ((int, int, char) listItem in specialOffers[pair.Key])
@@ -102,3 +105,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
