@@ -100,6 +100,3 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         }
     }
 }
-
-
-
