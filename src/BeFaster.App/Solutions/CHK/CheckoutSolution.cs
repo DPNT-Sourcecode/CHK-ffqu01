@@ -67,11 +67,15 @@ namespace BeFaster.App.Solutions.CHK
             return sum;
         }
 
+        public static void fillTables() 
+        {
+            StreamReader reader = new StreamReader("/PriceTable.txt");
+        }
+
         public static int CalculateDiscount(int originialPrice, (int, int, char) specialOffer) 
         {
             return originialPrice * specialOffer.Item1 - specialOffer.Item2;
         }
-        //Thinking of refactoring to classes...
         public static int applySpecialOffers(string skus) 
         {
             int sum = 0;
@@ -124,3 +128,4 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
