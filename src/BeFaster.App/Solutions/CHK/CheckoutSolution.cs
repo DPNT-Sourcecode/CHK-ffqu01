@@ -108,6 +108,10 @@ namespace BeFaster.App.Solutions.CHK
                     }
                     currentCount -= maxDiscount.Item1; //subtract highest discount count
                     sum += CalculateDiscount(priceTable[pair.Key], maxDiscount); //add discount to sum
+                    if (listItem.Item3 != ' ')
+                    {
+                        if (!skus.Contains(listItem.Item3)) break;
+                    }
                     maxDiscount = (0, 0, ' ');
                     TIMEOUT++;
                 }
@@ -118,4 +122,5 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
 
