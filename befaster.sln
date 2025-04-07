@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeFaster.App", "src\BeFaste
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeFaster.App.Tests", "src\BeFaster.App.Tests\BeFaster.App.Tests.csproj", "{5E247C4C-F88B-45D0-9A6F-D89BE9DEDC35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeFaster.App.MSTests", "BeFaster.App.MSTests\BeFaster.App.MSTests.csproj", "{919C9C67-3E08-4F4F-819D-DD2EE0652360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeFaster.App.MSTests", "BeFaster.App.MSTests\BeFaster.App.MSTests.csproj", "{919C9C67-3E08-4F4F-819D-DD2EE0652360}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E6AA1829-A0EC-4DD9-B327-7556512F9508}"
+	ProjectSection(SolutionItems) = preProject
+		PriceTable.txt = PriceTable.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,3 +46,4 @@ Global
 		SolutionGuid = {502B552F-0111-41BF-9E92-96ABC31DB0EB}
 	EndGlobalSection
 EndGlobal
+
