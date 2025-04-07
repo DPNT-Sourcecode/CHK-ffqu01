@@ -59,7 +59,7 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
-            sum -= applySpecialOffers(skus);
+            sum -= Math.Max(applySpecialOffers(skus, false), applySpecialOffers(skus, true));
             
             return sum;
         }
@@ -69,42 +69,45 @@ namespace BeFaster.App.Solutions.CHK
             return originialPrice * specialOffer.Item1 - specialOffer.Item2;
         }
         //Thinking of refactoring to classes...
-        public static int applySpecialOffers(string skus) 
+        public static int applySpecialOffers(string skus, bool checkBackwards) 
         {
             int sum = 0;
             (int, int, char) maxDiscount = (0, 0, ' ');
             int currentCount = 0;
             int TIMEOUT = 0;
-            int offersApplied = 0;
+            List<char> excluded = new List<char>();
 
-            foreach (KeyValuePair<char, int> pair in countSpecialOffers)
+            foreach (KeyValuePair<char, int> pair in (checkBackwards ? countSpecialOffers : countSpecialOffers.Reverse()))
             {
                 currentCount = pair.Value;
-                offersApplied = 0;
-                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
+                if (!excluded.Contains(pair.Key))
                 {
-                    foreach ((int, int, char) listItem in specialOffers[pair.Key])
+                    while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
                     {
-                        if (listItem.Item3 != ' ')
+                        foreach ((int, int, char) listItem in specialOffers[pair.Key])
                         {
-                            if (!skus.Contains(listItem.Item3)) break;
-                        }
-                        //check if deal is applicable
-                        if (currentCount >= listItem.Item1)
-                        {
-                            maxDiscount = listItem;
+                            if (currentCount >= listItem.Item1)
+                            {
+                                if (listItem.Item3 != ' ')
+                                {
+                                    if (!skus.Contains(listItem.Item3)) break;
+                                }
+                                maxDiscount = listItem;
+                                excluded.Add(listItem.Item3);
 
+                            }
                         }
+                        currentCount -= maxDiscount.Item1; //subtract highest discount count
+                        sum += CalculateDiscount(priceTable[pair.Key], maxDiscount); //add discount to sum
+                        maxDiscount = (0, 0, ' ');
                     }
-                    currentCount -= maxDiscount.Item1; //subtract highest discount count
-                    sum += CalculateDiscount(priceTable[pair.Key], maxDiscount); //add discount to sum
-                    maxDiscount = (0, 0, ' ');
-                    offersApplied++;
+                    currentCount = 0;
                 }
-                currentCount = 0;
             }
             return sum;
         }
+
     }
 }
+
 
