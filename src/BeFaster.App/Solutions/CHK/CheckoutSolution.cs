@@ -75,39 +75,40 @@ namespace BeFaster.App.Solutions.CHK
             (int, int, char) maxDiscount = (0, 0, ' ');
             int currentCount = 0;
             int TIMEOUT = 0;
-            List<char> excluded = new List<char>();
+            Dictionary<char, int> excluded = new Dictionary<char, int>(); 
 
             foreach (KeyValuePair<char, int> pair in (checkBackwards ? countSpecialOffers : countSpecialOffers.Reverse()))
             {
                 currentCount = pair.Value;
-                if (!excluded.Contains(pair.Key))
+                if (excluded.ContainsKey(pair.Key)) 
                 {
-                    while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
-                    {
-                        foreach ((int, int, char) listItem in specialOffers[pair.Key])
-                        {
-                            if (currentCount >= listItem.Item1)
-                            {
-                                if (listItem.Item3 != ' ')
-                                {
-                                    if (!skus.Contains(listItem.Item3)) break;
-                                }
-                                maxDiscount = listItem;
-                                excluded.Add(listItem.Item3);
-
-                            }
-                        }
-                        currentCount -= maxDiscount.Item1; //subtract highest discount count
-                        sum += CalculateDiscount(priceTable[pair.Key], maxDiscount); //add discount to sum
-                        maxDiscount = (0, 0, ' ');
-                    }
-                    currentCount = 0;
+                    
                 }
+                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
+                {
+                    foreach ((int, int, char) listItem in specialOffers[pair.Key])
+                    {
+                        if (currentCount >= listItem.Item1)
+                        {
+                            if (listItem.Item3 != ' ')
+                            {
+                                if (!skus.Contains(listItem.Item3)) break;
+                            }
+                            maxDiscount = listItem;
+                                excluded.Add(listItem.Item3);
+                        }
+                    }
+                    currentCount -= maxDiscount.Item1; //subtract highest discount count
+                    sum += CalculateDiscount(priceTable[pair.Key], maxDiscount); //add discount to sum
+                    maxDiscount = (0, 0, ' ');
+                }
+                currentCount = 0;
             }
             return sum;
         }
 
     }
 }
+
 
 
