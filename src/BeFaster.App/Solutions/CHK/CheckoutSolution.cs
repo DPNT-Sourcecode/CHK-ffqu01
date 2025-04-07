@@ -36,6 +36,7 @@ namespace BeFaster.App.Solutions.CHK
             priceTable.Add('C', 20);
             priceTable.Add('D', 15);
             priceTable.Add('E', 40);
+            priceTable.Add('F', 10);
             //fill special offers
             specialOffers.Add('E', [(2, 50, 'B')]); //2 * E - B
             specialOffers.Add('F', [(3, 20, 'F')]); // 3 f needed for offer
@@ -43,6 +44,7 @@ namespace BeFaster.App.Solutions.CHK
             specialOffers.Add('B', [ (2, 45, ' ') ]);
             //fill countSpecialOffers
             countSpecialOffers.Add('E', 0);
+            countSpecialOffers.Add('F', 0);
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
             
@@ -122,6 +124,7 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
 
 
 

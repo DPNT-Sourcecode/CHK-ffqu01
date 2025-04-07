@@ -95,10 +95,11 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         }
         [TestMethod]
         public void testNewWordedOffer() 
-        { 
-
+        {
+            Assert.AreEqual(90-30, CheckoutSolution.ComputePrice("FFFFFFFFF"));
         }
     }
 }
+
 
 
