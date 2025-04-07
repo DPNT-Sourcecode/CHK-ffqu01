@@ -79,12 +79,20 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         {
             Assert.AreEqual(330+80+40, CheckoutSolution.ComputePrice("AAAAAAAAEEEB"));
         }
-
         [TestMethod]
         public void timeoutTest() 
         {
             Assert.AreEqual(160, CheckoutSolution.ComputePrice("EEEEBB"));
             Assert.AreEqual(160, CheckoutSolution.ComputePrice("BEBEEE"));
         }
+
+        //CHK_R3
+
+        [TestMethod]
+        public void testSpecialConditions() 
+        {
+            Assert.AreEqual(160, CheckoutSolution.ComputePrice("EEEEB"));
+        }
     }
 }
+
