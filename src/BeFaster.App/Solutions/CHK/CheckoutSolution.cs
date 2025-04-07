@@ -84,16 +84,16 @@ namespace BeFaster.App.Solutions.CHK
                 {
                     currentCount -= excluded[pair.Key];
                 }
-                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
+                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1 && TIMEOUT < skus.Length)
                 {
                     foreach ((int, int, char) listItem in specialOffers[pair.Key])
                     {
+                        if (listItem.Item3 != ' ')
+                        {
+                            if (!skus.Contains(listItem.Item3)) break;
+                        }
                         if (currentCount >= listItem.Item1)
                         {
-                            if (listItem.Item3 != ' ')
-                            {
-                                if (!skus.Contains(listItem.Item3)) break;
-                            }
                             maxDiscount = listItem;
                             if (excluded.ContainsKey(listItem.Item3))
                             {
@@ -108,6 +108,7 @@ namespace BeFaster.App.Solutions.CHK
                     currentCount -= maxDiscount.Item1; //subtract highest discount count
                     sum += CalculateDiscount(priceTable[pair.Key], maxDiscount); //add discount to sum
                     maxDiscount = (0, 0, ' ');
+                    TIMEOUT++;
                 }
                 currentCount = 0;
             }
@@ -116,5 +117,6 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
 
 
