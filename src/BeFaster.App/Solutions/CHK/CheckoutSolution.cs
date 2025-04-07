@@ -37,9 +37,9 @@ namespace BeFaster.App.Solutions.CHK
             priceTable.Add('D', 15);
             priceTable.Add('E', 40);
             //fill special offers
+            specialOffers.Add('E', [(2, 50, 'B')]); //2 * E - B
             specialOffers.Add('A', [ (3, 130, ' '), (5, 200, ' ') ]);
             specialOffers.Add('B', [ (2, 45, ' ') ]);
-            specialOffers.Add('E', [ (2, 50, 'B') ]); //2 * E - B
             //fill countSpecialOffers
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
@@ -59,7 +59,7 @@ namespace BeFaster.App.Solutions.CHK
                     return -1;
                 }
             }
-            sum -= Math.Max(applySpecialOffers(skus, false), applySpecialOffers(skus, true));
+            sum -= applySpecialOffers(skus);
             
             return sum;
         }
@@ -69,7 +69,7 @@ namespace BeFaster.App.Solutions.CHK
             return originialPrice * specialOffer.Item1 - specialOffer.Item2;
         }
         //Thinking of refactoring to classes...
-        public static int applySpecialOffers(string skus, bool checkBackwards) 
+        public static int applySpecialOffers(string skus) 
         {
             int sum = 0;
             (int, int, char) maxDiscount = (0, 0, ' ');
@@ -77,7 +77,7 @@ namespace BeFaster.App.Solutions.CHK
             int TIMEOUT = 0;
             Dictionary<char, int> excluded = new Dictionary<char, int>(); 
 
-            foreach (KeyValuePair<char, int> pair in (checkBackwards ? countSpecialOffers : countSpecialOffers.Reverse()))
+            foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
                 currentCount = pair.Value;
                 if (excluded.ContainsKey(pair.Key)) 
@@ -116,3 +116,4 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
