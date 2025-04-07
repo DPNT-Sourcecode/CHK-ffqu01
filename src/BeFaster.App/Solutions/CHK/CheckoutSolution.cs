@@ -82,7 +82,7 @@ namespace BeFaster.App.Solutions.CHK
                 currentCount = pair.Value;
                 if (excluded.ContainsKey(pair.Key)) 
                 {
-                    
+                    currentCount -= excluded[pair.Key];
                 }
                 while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
                 {
@@ -95,7 +95,14 @@ namespace BeFaster.App.Solutions.CHK
                                 if (!skus.Contains(listItem.Item3)) break;
                             }
                             maxDiscount = listItem;
-                                excluded.Add(listItem.Item3);
+                            if (excluded.ContainsKey(listItem.Item3))
+                            {
+                                excluded[listItem.Item3]++;
+                            }
+                            else
+                            {
+                                excluded.TryAdd(listItem.Item3, 1);
+                            }
                         }
                     }
                     currentCount -= maxDiscount.Item1; //subtract highest discount count
@@ -109,6 +116,3 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
-
-
-
