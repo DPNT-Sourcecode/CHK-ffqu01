@@ -41,9 +41,9 @@ namespace BeFaster.App.Solutions.CHK
             specialOffers.Add('A', [ (3, 130, ' '), (5, 200, ' ') ]);
             specialOffers.Add('B', [ (2, 45, ' ') ]);
             //fill countSpecialOffers
+            countSpecialOffers.Add('E', 0);
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
-            countSpecialOffers.Add('E', 0);
             
             foreach(char c in skus) {
                 if (priceTable.ContainsKey(c))
@@ -116,4 +116,5 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
 
