@@ -39,7 +39,7 @@ namespace BeFaster.App.Solutions.CHK
             //fill special offers
             specialOffers.Add('A', [ (3, 130, ' '), (5, 200, ' ') ]);
             specialOffers.Add('B', [ (2, 45, ' ') ]);
-            specialOffers.Add('E', [ (2, 50, 'B') ]); //2 * E - B
+            specialOffers.Add('E', [ (2, 80, 'B') ]); //2 * E - B
             //fill countSpecialOffers
             countSpecialOffers.Add('A', 0);
             countSpecialOffers.Add('B', 0);
@@ -116,3 +116,4 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
