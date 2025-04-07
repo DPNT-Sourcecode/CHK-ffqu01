@@ -98,5 +98,14 @@ namespace BeFaster.App.MSTests.Solutions.CHK
         {
             Assert.AreEqual(90-30, CheckoutSolution.ComputePrice("FFFFFFFFF"));
         }
+
+        //CHK_R4
+
+        [TestMethod]
+        public void testFileLocation() 
+        {
+            Assert.IsNotNull(CheckoutSolution.fillTables());
+        }
     }
 }
+

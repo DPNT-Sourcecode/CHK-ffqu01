@@ -67,9 +67,10 @@ namespace BeFaster.App.Solutions.CHK
             return sum;
         }
 
-        public static void fillTables() 
+        public static string fillTables() 
         {
             StreamReader reader = new StreamReader("/PriceTable.txt");
+            return reader.ReadToEnd();
         }
 
         public static int CalculateDiscount(int originialPrice, (int, int, char) specialOffer) 
@@ -128,4 +129,5 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
 
