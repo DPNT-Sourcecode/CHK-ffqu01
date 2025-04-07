@@ -79,7 +79,7 @@ namespace BeFaster.App.Solutions.CHK
             foreach (KeyValuePair<char, int> pair in countSpecialOffers)
             {
                 currentCount = pair.Value;
-                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1 && TIMEOUT < 100)
+                while (currentCount > 0 && currentCount >= specialOffers[pair.Key][0].Item1)
                 {
                     foreach ((int, int, char) listItem in specialOffers[pair.Key])
                     {
@@ -105,4 +105,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }
 }
+
 
