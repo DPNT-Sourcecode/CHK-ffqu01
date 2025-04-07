@@ -24,4 +24,10 @@
 	<ProjectReference Include="..\src\BeFaster.App\BeFaster.App.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="PriceTable.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
