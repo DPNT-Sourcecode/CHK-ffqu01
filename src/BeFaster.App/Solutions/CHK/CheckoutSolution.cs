@@ -69,7 +69,7 @@ namespace BeFaster.App.Solutions.CHK
 
         public static string fillTables() 
         {
-            StreamReader reader = new StreamReader("PriceTable.txt");
+            StreamReader reader = new StreamReader("..\\PriceTable.txt");
             return reader.ReadToEnd();
         }
 
@@ -129,6 +129,7 @@ namespace BeFaster.App.Solutions.CHK
 
     }
 }
+
 
 
 
